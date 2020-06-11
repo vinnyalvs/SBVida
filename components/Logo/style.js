@@ -13,7 +13,7 @@ const estilo =  StyleSheet.create({
         height: imageWidth,
     },
     logo: {
-        width: imageWidth / 2,
+        width: imageWidth / 10,
     },
     text: {
         color: '$white',

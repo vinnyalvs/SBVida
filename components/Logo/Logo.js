@@ -7,13 +7,13 @@ import styles from './style';
 
 const Logo = () => (
     <View style={styles.container}>
-        <ImageBackground
+        <Image
             resizeMode="contain"
             style={styles.containerImage}
             source={require('./images/LogoSemNome.png')}
         >
             { /* <ImageesizeMode="contain" style={styles.logo} source={require('./images/logo2.png')} /> */}
-        </ImageBackground>
+        </Image>
         <Text style={styles.text}>SBVida</Text>
     </View >
 );

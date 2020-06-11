@@ -17,7 +17,7 @@ export default function PreTest({navigation}) {
             <View>
                 <ScrollView>
                 <View >
-                    <Button title="Clique para abrir o Pré-Teste" onPress={() => navigation.navigate('Root')} > </Button>
+                    <Button title="Clique para abrir o Pré-Teste" onPress={() =>  handlePreTestPress(navigation)  } > </Button>
                 </View>
                 </ScrollView>
             </View> 
@@ -25,11 +25,13 @@ export default function PreTest({navigation}) {
 }
 
 
-function handlePreTestPress()  {
-   // this.props.navigation.navigate('HomeScreen');    
+function handlePreTestPress(navigation)  {
     WebBrowser.openBrowserAsync(
-      'https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform'
-    );
+        'https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform'
+      );
+    navigation.navigate('Home');
+ 
+    
   }
 
 

@@ -20,7 +20,7 @@ export default function HomeScreen() {
 
 
           <View style={{ flexDirection: 'row' }}>
-                    <Button title="Clique para abrir o Pré-Teste" onPress={handlePreTestPress} style={styles.helpLink}> </Button>
+                    <Button title="Clique para continuar onPress={handlePreTestPress} style={styles.helpLink}"> </Button>
           </View>
 
         
