@@ -4,20 +4,14 @@ import { Image, Platform, Button, StyleSheet, Text, TouchableOpacity, Linking, V
 import { ScrollView } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
+import {Logo} from '../components/Logo';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
+          <Logo></Logo>
         </View>
 
         <View style={styles.getStartedContainer}>

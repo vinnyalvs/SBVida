@@ -1,9 +1,8 @@
-import { Dimensions } from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
+import { Dimensions, StyleSheet } from 'react-native';
 
 const imageWidth = Dimensions.get('window').width / 2;
 
-export default EStyleSheet.create({
+const estilo =  StyleSheet.create({
     container: {
         alignItems: 'center',
     },
@@ -22,6 +21,8 @@ export default EStyleSheet.create({
         letterSpacing: -0.5,
         marginTop: 15,
         fontWeight: '600',
-    },
+    }
 });
+
+export default estilo;
 
