@@ -1,6 +1,6 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, Button, StyleSheet, Text, TouchableOpacity, Linking, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
@@ -29,9 +29,11 @@ export default function HomeScreen() {
             <MonoText>screens/HomeScreen.js</MonoText>
           </View>
 
-          <Text style={styles.getStartedText}>
-            Change any of the text, save the file, and your app will automatically reload.
-          </Text>
+          <View style={{ flexDirection: 'row' }}>
+                    <Button title="Clique para abrir o Pré-Teste" onPress={handlePreTestPress} style={styles.helpLink}> </Button>
+                        </View>
+
+        
         </View>
 
         <View style={styles.helpContainer}>
@@ -88,6 +90,17 @@ function handleHelpPress() {
     'https://docs.expo.io/versions/latest/get-started/create-a-new-app/#making-your-first-change'
   );
 }
+
+function handlePreTestPress() {
+  WebBrowser.openBrowserAsync(
+    'https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform'
+  );
+}
+
+function handleUnavailableItem () {
+  alert("Função Indisponível no momento!");
+
+};
 
 const styles = StyleSheet.create({
   container: {
