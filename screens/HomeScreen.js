@@ -21,35 +21,17 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
 
           <View style={{ flexDirection: 'row' }}>
                     <Button title="Clique para abrir o Pré-Teste" onPress={handlePreTestPress} style={styles.helpLink}> </Button>
-                        </View>
+          </View>
 
         
         </View>
 
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
 
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-        <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
-        </View>
-      </View>
     </View>
   );
 }
