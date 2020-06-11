@@ -6,6 +6,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { MonoText } from '../components/StyledText';
 import {Logo} from '../components/Logo';
 
+import PreTest from '../screens/preTest'
+
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
@@ -68,6 +70,9 @@ function handleHelpPress() {
 }
 
 function handlePreTestPress() {
+  //navigation.navigate(PreTest);
+  navigation.navigate('PreTest');
+  console.log("help");
   WebBrowser.openBrowserAsync(
     'https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform'
   );
