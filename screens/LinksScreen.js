@@ -21,7 +21,7 @@ export default function LinksScreen() {
 
      <OptionButton
         icon="md-book"
-        label="Responda o pré teste"
+        label="Responda o pós teste"
         onPress={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')}
       />
 

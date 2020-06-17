@@ -6,8 +6,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
-import PreTest from './screens/preTest'
-import LinksScreen from './screens/LinksScreen';
+import HomeScreen from './screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,9 +21,9 @@ export default function App(props) {
         {Platform.OS === 'android' && <StatusBar barStyle="dark-content" />}
         <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
-          <Stack.Screen name="Home" component={BottomTabNavigator}/>
-           <Stack.Screen name="PreTest" component={PreTest} />
-           
+          
+           <Stack.Screen name="Home" component={HomeScreen}/>
+           <Stack.Screen name="Root" component={BottomTabNavigator}/>
            {/* <Stack.Screen name="Home" component={BottomTabNavigator} /> *}
             {/* <Stack.Screen name="Root" component={BottomTabNavigator} /> */}
 

@@ -13,10 +13,10 @@ const estilo =  StyleSheet.create({
         height: imageWidth,
     },
     logo: {
-        width: imageWidth / 10,
+        width: imageWidth / 2,
     },
     text: {
-        color: '$white',
+        color: '#FFFFFF',
         fontSize: 28,
         letterSpacing: -0.5,
         marginTop: 15,
@@ -25,4 +25,3 @@ const estilo =  StyleSheet.create({
 });
 
 export default estilo;
-

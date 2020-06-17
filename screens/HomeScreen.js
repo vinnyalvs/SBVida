@@ -6,9 +6,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { MonoText } from '../components/StyledText';
 import {Logo} from '../components/Logo';
 
-import PreTest from '../screens/preTest'
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -20,7 +19,7 @@ export default function HomeScreen() {
 
 
           <View style={{ flexDirection: 'row' }}>
-                    <Button title="Clique para continuar onPress={handlePreTestPress} style={styles.helpLink}"> </Button>
+                    <Button title="Clique para abrir o Pré-Teste" onPress={() =>  handlePreTestPress(navigation)} style={styles.helpLink}> </Button>
           </View>
 
         
@@ -36,42 +35,9 @@ HomeScreen.navigationOptions = {
   header: null,
 };
 
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
 
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use useful development
-        tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/workflow/development-mode/');
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/get-started/create-a-new-app/#making-your-first-change'
-  );
-}
-
-function handlePreTestPress() {
-  //navigation.navigate(PreTest);
-
+function handlePreTestPress(navigation) {
+  navigation.navigate('Root');
   console.log("help");
   WebBrowser.openBrowserAsync(
     'https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform'
@@ -80,7 +46,6 @@ function handlePreTestPress() {
 
 function handleUnavailableItem () {
   alert("Função Indisponível no momento!");
-
 };
 
 const styles = StyleSheet.create({
