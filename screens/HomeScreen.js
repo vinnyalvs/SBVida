@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
 import {Logo} from '../components/Logo';
+import {UFJFLogo} from '../components/UFJFLogo';
 
 
 export default function HomeScreen({navigation}) {
@@ -17,10 +18,24 @@ export default function HomeScreen({navigation}) {
 
         <View style={styles.getStartedContainer}>
 
+        <View style={{ flexDirection: 'row' }}>
+                  <Text style={styles.welcometext}>
+                        Seja bem vindo(a) ao:
+                  </Text>
+        </View>
+        <View style={styles.getStartedContainer}>
+          <Text style={styles.sbvidatext}>
+            Suporte Básico de Vida
+          </Text>   
+        </View>
 
-          <View style={{ flexDirection: 'row' }}>
+        <View style={styles.welcomeContainer}>
+          <UFJFLogo></UFJFLogo>
+        </View>
+
+        <View style={{ flexDirection: 'row' }}>
                     <Button title="Clique para abrir o Pré-Teste" onPress={() =>  handlePreTestPress(navigation)} style={styles.helpLink}> </Button>
-          </View>
+         </View>
 
         
         </View>
@@ -58,6 +73,24 @@ const styles = StyleSheet.create({
     color: 'rgba(0,0,0,0.4)',
     fontSize: 14,
     lineHeight: 19,
+    textAlign: 'center',
+  },
+  welcometext: {
+    marginBottom: 40,
+    color: 'rgba(20,20,20,1.0)',
+    fontSize: 18,
+    lineHeight: 19,
+    fontFamily: 'Verdana',
+    textAlign: 'center',
+    borderBottomWidth: 1,
+  },
+  sbvidatext: {
+    marginBottom: 40,
+    color: 'rgba(20,20,20,1.0)',
+    fontSize: 24,
+    lineHeight: 19,
+    fontFamily: 'Verdana',
+    fontWeight: 'Bold',
     textAlign: 'center',
   },
   contentContainer: {
