@@ -78,16 +78,16 @@ const styles = StyleSheet.create({
   welcometext: {
     marginBottom: 40,
     color: 'rgba(20,20,20,1.0)',
-    fontSize: 18,
+    fontSize: 28,
     lineHeight: 19,
     fontFamily: 'Verdana',
     textAlign: 'center',
-    borderBottomWidth: 1,
+
   },
   sbvidatext: {
     marginBottom: 40,
     color: 'rgba(20,20,20,1.0)',
-    fontSize: 24,
+    fontSize: 34,
     lineHeight: 19,
     fontFamily: 'Verdana',
     fontWeight: 'Bold',
