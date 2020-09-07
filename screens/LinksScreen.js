@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,Image,TouchableOpacity  } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import material from "../images/Button_Materials2.png";
 import youtube from "../images/Button_MaterialsVideo.png";
@@ -9,47 +9,25 @@ import postTest from "../images/Button_PosTest.png";
 
 export default function LinksScreen() {
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <OptionButton
-        icon="md-school"
-        label="Leia os materiais"
-        onPress={() => WebBrowser.openBrowserAsync('http://www.saude.gov.br/images/pdf/2016/outubro/26/livro-basico-2016.pdf')}
-      />
+    <ScrollView style={styles.container} >
+      
+      <button style={styles.MyButton}  onClick={() => WebBrowser.openBrowserAsync('http://www.saude.gov.br/images/pdf/2016/outubro/26/livro-basico-2016.pdf')}><img src={material} /></button>
+      <button style={styles.MyButton} onClick={() => WebBrowser.openBrowserAsync('https://www.youtube.com/watch?v=ER7YrPJp9Dc')}><img src={youtube} /></button>
+      <button style={styles.MyButton}  onClick={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')}><img src={postTest} /></button>
+      <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5}>
+        <Image
+          source = {require("../images/Button_Materials2.png")}
+          style={styles.ImageIconStyle}
 
-      <button><img src={material} /></button>
-      <button><img src={youtube} /></button>
-      <button><img src={postTest} /></button>
-
-      <OptionButton
-        icon="md-play"
-        label="Veja os vídeos no youtube"
-        onPress={() => WebBrowser.openBrowserAsync('https://www.youtube.com/watch?v=ER7YrPJp9Dc')}
-      />
-
-     <OptionButton
-        icon="md-book"
-        label="Responda o pós teste"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')}
-      />
-
+        />
+        <View style={styles.SeparatorLine} />
+    </TouchableOpacity>
+      
     </ScrollView>
   );
 }
 
-function OptionButton({ icon, label, onPress, isLastOption }) {
-  return (
-    <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
-      <View style={{ flexDirection: 'row' }}>
-        <View style={styles.optionIconContainer}>
-          <Ionicons name={icon} size={22} color="rgba(0,0,0,0.35)" />
-        </View>
-        <View style={styles.optionTextContainer}>
-          <Text style={styles.optionText}>{label}</Text>
-        </View>
-      </View>
-    </RectButton>
-  );
-}
+
 
 function myfunction() {
   console.log("CLICKED");
@@ -58,12 +36,12 @@ function myfunction() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fafafa',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10,
+    backgroundColor: '#def3f3',
   },
-  contentContainer: {
-    paddingTop: 15,
-  },
-  optionIconContainer: {
+   optionIconContainer: {
     marginRight: 12,
   },
   option: {
@@ -72,6 +50,8 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderColor: '#ededed',
   },
   lastOption: {
@@ -82,4 +62,58 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginTop: 1,
   },
+ 
+  GooglePlusStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#def3f3',
+    borderWidth: 0.5,
+    borderColor: '#fff',
+    height: 40,
+    width: 220,
+    borderRadius: 5,
+    margin: 5,
+  },
+  FacebookStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#def3f3',
+    borderWidth: 0.5,
+    borderColor: '#def3f3',
+    height: 40,
+    width: 220,
+    borderRadius: 5,
+    margin: 5,
+  },
+  MyButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#def3f3',
+    borderWidth: 0.5,
+    borderColor: '#def3f3',
+    height: 40,
+    width: 220,
+    borderRadius: 5,
+    margin: 5,
+  },
+  ImageIconStyle: {
+    padding: 10,
+    margin: 5,
+    height: 96,
+    width: 200,
+    resizeMode: 'stretch',
+  },
+  TextStyle: {
+    color: '#fff',
+    marginBottom: 4,
+    marginRight: 20,
+  },
+  SeparatorLine: {
+    backgroundColor: '#fff',
+    width: 1,
+    height: 40,
+  },
+
 });
