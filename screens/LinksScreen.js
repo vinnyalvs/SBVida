@@ -9,21 +9,39 @@ import postTest from "../images/Button_PosTest.png";
 
 export default function LinksScreen() {
   return (
-    <ScrollView style={styles.container} >
-      
-      <button style={styles.MyButton}  onClick={() => WebBrowser.openBrowserAsync('http://www.saude.gov.br/images/pdf/2016/outubro/26/livro-basico-2016.pdf')}><img src={material} /></button>
-      <button style={styles.MyButton} onClick={() => WebBrowser.openBrowserAsync('https://www.youtube.com/watch?v=ER7YrPJp9Dc')}><img src={youtube} /></button>
-      <button style={styles.MyButton}  onClick={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')}><img src={postTest} /></button>
-      <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5}>
+    <View  style={styles.container} >
+
+      <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')} >
         <Image
           source = {require("../images/Button_Materials2.png")}
           style={styles.ImageIconStyle}
 
         />
-        <View style={styles.SeparatorLine} />
+
+    </TouchableOpacity> 
+    <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')} >
+        <Image
+          source = {require("../images/Button_MaterialsVideo.png")}
+          style={styles.ImageIconStyle}
+
+        />
+
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')} >
+        <Image
+          source = {require("../images/Button_PosTest.png")}
+          style={styles.ImageIconStyle}
+
+        />
+
     </TouchableOpacity>
       
-    </ScrollView>
+    <button style={styles.MyButton}  onClick={() => WebBrowser.openBrowserAsync('http://www.saude.gov.br/images/pdf/2016/outubro/26/livro-basico-2016.pdf')}><img src={material} /></button>
+      <button style={styles.MyButton} onClick={() => WebBrowser.openBrowserAsync('https://www.youtube.com/watch?v=ER7YrPJp9Dc')}><img src={youtube} /></button>
+      <button style={styles.MyButton}  onClick={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')}><img src={postTest} /></button>
+      
+      
+    </View>
   );
 }
 
@@ -86,18 +104,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
   },
-  MyButton: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#def3f3',
-    borderWidth: 0.5,
-    borderColor: '#def3f3',
-    height: 40,
-    width: 220,
-    borderRadius: 5,
-    margin: 5,
-  },
+
   ImageIconStyle: {
     padding: 10,
     margin: 5,
@@ -110,10 +117,6 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     marginRight: 20,
   },
-  SeparatorLine: {
-    backgroundColor: '#fff',
-    width: 1,
-    height: 40,
-  },
+
 
 });
