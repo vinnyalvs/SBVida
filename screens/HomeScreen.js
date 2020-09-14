@@ -34,7 +34,7 @@ export default function HomeScreen({navigation}) {
         </View>
 
         <View style={{ flexDirection: 'row' }}>
-                    <Button title="Clique para abrir o Pré-Teste" onPress={() =>  handlePreTestPress(navigation)} style={styles.helpLink}> </Button>
+                    <Button color="#6dc9ca"  title="Clique para abrir o Pré-Teste" onPress={() =>  handlePreTestPress(navigation)} > </Button>
          </View>
 
         
@@ -53,15 +53,31 @@ HomeScreen.navigationOptions = {
 
 function handlePreTestPress(navigation) {
   navigation.navigate('Root');
-  console.log("help");
+  try{
+    const t = salvarAberturaPreTeste();
+  }catch(erro){
+    console.error(erro.message)
+  }
+
   WebBrowser.openBrowserAsync(
     'https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform'
   );
+
+}
+
+const salvarAberturaPreTeste = async ()=> {
+  try{
+    AsyncStorage.setItem("abriu_pre_teste", "Sim");
+  }catch(erro){
+    console.error(erro.message)
+  }
 }
 
 function handleUnavailableItem () {
   alert("Função Indisponível no momento!");
 };
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -87,7 +103,7 @@ const styles = StyleSheet.create({
   sbvidatext: {
     marginBottom: 40,
     color: 'rgba(20,20,20,1.0)',
-    fontSize: 34,
+    fontSize: 24,
     lineHeight: 19,
     fontFamily: 'Verdana',
     fontWeight: 'Bold',
@@ -124,7 +140,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   getStartedText: {
-    fontSize: 17,
+    fontSize: 14,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
@@ -163,6 +179,8 @@ const styles = StyleSheet.create({
   },
   helpLink: {
     paddingVertical: 15,
+    backgroundColor: '#EFF8F8', 
+    border: 0, 
   },
   helpLinkText: {
     fontSize: 14,

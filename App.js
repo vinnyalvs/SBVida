@@ -16,6 +16,7 @@ export default function App(props) {
   if (!isLoadingComplete) {
     return null;
   } else {
+    const t = abriuPreTeste();
     return (
       <View style={styles.container}>
         {Platform.OS === 'android' && <StatusBar barStyle="dark-content" />}
@@ -33,6 +34,20 @@ export default function App(props) {
     );
   }
 }
+
+const abriuPreTeste = async ()=> {
+  console.log("Alou mundo");
+  try{
+      const t = await AsynsStorage.getItem("abriu_pre_teste");
+      if(t == "Sim")
+        navigation.navigate('Root');
+      else 
+        console.log("Socorro!");
+  }catch(erro){
+    console.error(erro.message)
+  }
+}
+
 
 const styles = StyleSheet.create({
   container: {
