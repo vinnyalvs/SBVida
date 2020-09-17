@@ -6,10 +6,19 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { MonoText } from '../components/StyledText';
 import {Logo} from '../components/Logo';
 import {UFJFLogo} from '../components/UFJFLogo';
+import AsyncStorage from '@react-native-community/async-storage';
+
+const STORAGE_KEY = '@abriu_pre_teste';
 
 
 export default function HomeScreen({navigation}) {
+  //Verifica se já abriu pre teste
+  if(global.state)
+    navigation.navigate('Root');
+  
   return (
+    
+    
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
@@ -67,7 +76,8 @@ function handlePreTestPress(navigation) {
 
 const salvarAberturaPreTeste = async ()=> {
   try{
-    AsyncStorage.setItem("abriu_pre_teste", "Sim");
+    AsyncStorage.setItem(STORAGE_KEY, "Sim");
+    console.log("Salvou");
   }catch(erro){
     console.error(erro.message)
   }
@@ -76,7 +86,6 @@ const salvarAberturaPreTeste = async ()=> {
 function handleUnavailableItem () {
   alert("Função Indisponível no momento!");
 };
-
 
 
 const styles = StyleSheet.create({

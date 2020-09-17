@@ -5,6 +5,7 @@ import { StyleSheet, Text, View,Image,TouchableOpacity  } from 'react-native';
 import material from "../images/Button_Materials2.png";
 import youtube from "../images/Button_MaterialsVideo.png";
 import postTest from "../images/Button_PosTest.png";
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default function LinksScreen() {
   return (
@@ -24,7 +25,7 @@ export default function LinksScreen() {
 
     
       
-    <button style={{ backgroundColor: '#EFF8F8', border: 0 }}  onClick={() => WebBrowser.openBrowserAsync('http://www.saude.gov.br/images/pdf/2016/outubro/26/livro-basico-2016.pdf')}><img src={material} /></button>
+      <button style={{ backgroundColor: '#EFF8F8', border: 0 }}  onClick={() => WebBrowser.openBrowserAsync('http://www.saude.gov.br/images/pdf/2016/outubro/26/livro-basico-2016.pdf')}><img src={material} /></button>
       <button style={{ backgroundColor: '#EFF8F8', border: 0 }} onClick={() => WebBrowser.openBrowserAsync('https://www.youtube.com/watch?v=ER7YrPJp9Dc')}><img src={youtube} /></button>
       <button style={{ backgroundColor: '#EFF8F8', border: 0 }}  onClick={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')}><img src={postTest} /></button>
       
@@ -56,12 +57,13 @@ const styles = StyleSheet.create({
 
 });
 
-const abriuPreTeste = async ()=> {
-  try{
-    await AsyncStorage.setItem("abriu_pre_teste", "Sim");
-      const t = await AsynsStorage.getItem("abriu_pre_teste");
-      console.warn(t)
-  }catch(erro){
-    setMensagemErro(erro.message)
+const clearStorage = async () => {
+  try {
+    await AsyncStorage.clear()
+    alert('Storage successfully cleared!')
+  } catch (e) {
+    alert('Failed to clear the async storage.')
   }
 }
+
+
