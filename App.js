@@ -27,7 +27,7 @@ export default function App(props) {
         {Platform.OS === 'android' && <StatusBar barStyle="dark-content" />}
         <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Início" component={HomeScreen} />
           <Stack.Screen name="Root" component={BottomTabNavigator}/>
            {/*  *}
             {/* <Stack.Screen name="Root" component={BottomTabNavigator} /> */}
@@ -42,7 +42,7 @@ export default function App(props) {
 
 const abriuPreTeste = async ()=> {
   React.useEffect(() => {
-  console.log("Alou mundo");
+  console.log("Iniciando app, lendo AsyncStorage");
   async function loadResourcesAndDataAsync() {
   try{
       const t = await AsyncStorage.getItem(STORAGE_KEY);

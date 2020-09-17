@@ -13,8 +13,10 @@ const STORAGE_KEY = '@abriu_pre_teste';
 
 export default function HomeScreen({navigation}) {
   //Verifica se já abriu pre teste
-  if(global.state)
-    navigation.navigate('Root');
+  if(global.state){
+    console.log("redirecionando");
+    //navigation.navigate('Root'); 
+  }
   
   return (
     
@@ -43,7 +45,7 @@ export default function HomeScreen({navigation}) {
         </View>
 
         <View style={{ flexDirection: 'row' }}>
-                    <Button color="#6dc9ca"  title="Clique para abrir o Pré-Teste" onPress={() =>  handlePreTestPress(navigation)} > </Button>
+                    <Button color="#6dc9ca" fontFamily="Gotham" fontSize="10px" title="Clique para abrir o Pré-Teste" onPress={() =>  handlePreTestPress(navigation)} > </Button>
          </View>
 
         
@@ -93,28 +95,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
   welcometext: {
-    marginBottom: 40,
     color: 'rgba(20,20,20,1.0)',
-    fontSize: 28,
+    fontSize: 18,
     lineHeight: 19,
-    fontFamily: 'Verdana',
+    fontFamily: 'Gotham',
     textAlign: 'center',
 
   },
   sbvidatext: {
-    marginBottom: 40,
     color: 'rgba(20,20,20,1.0)',
-    fontSize: 24,
+    fontSize: 25,
     lineHeight: 19,
-    fontFamily: 'Verdana',
+    fontFamily: 'Gotham',
     fontWeight: 'Bold',
     textAlign: 'center',
   },
