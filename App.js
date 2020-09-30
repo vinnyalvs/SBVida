@@ -6,11 +6,12 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
+import LinksScreen from './screens/LinksScreen';
 import HomeScreen from './screens/HomeScreen';
 import AsyncStorage from '@react-native-community/async-storage';
 const STORAGE_KEY = '@abriu_pre_teste';
 
-global.state = 0;
+global.state = false;
 
 const Stack = createStackNavigator();
 
@@ -27,8 +28,8 @@ export default function App(props) {
         {Platform.OS === 'android' && <StatusBar barStyle="dark-content" />}
         <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
-          <Stack.Screen name="Início" component={HomeScreen} />
-          <Stack.Screen name="Root" component={BottomTabNavigator}/>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Links" component={LinksScreen}/>
            {/*  *}
             {/* <Stack.Screen name="Root" component={BottomTabNavigator} /> */}
 
@@ -48,7 +49,7 @@ const abriuPreTeste = async ()=> {
       const t = await AsyncStorage.getItem(STORAGE_KEY);
       console.log("Já fez pré teste : " + t);
       if(t !== null) {
-        global.state = 1; 
+        global.state = true; 
       }
   }catch(erro){
     console.error(erro.message)

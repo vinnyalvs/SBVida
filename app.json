@@ -14,7 +14,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#EFF8F8"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -30,7 +30,9 @@
       "versionCode": 1
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
-    }
+      "favicon": "./assets/images/icon.png"
+    },
+    "description": "",
+    "githubUrl": "https://github.com/vinnyalvs/SBVida"
   }
 }

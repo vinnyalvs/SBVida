@@ -1,43 +1,50 @@
-import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { StyleSheet, Text, View,Image,TouchableOpacity  } from 'react-native';
-import material from "../images/Button_Materials2.png";
-import youtube from "../images/Button_MaterialsVideo.png";
-import postTest from "../images/Button_PosTest.png";
+import { StyleSheet, View,Image,TouchableOpacity  } from 'react-native';
+import material from "../images/Button_Materials2_3.png";
+import youtube from "../images/Button_MaterialsVideo_3.png";
+import postTest from "../images/Button_PosTest_3.png";
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function LinksScreen() {
+  //Verifica se já abriu pre teste
+  if(global.state){
+    console.log("Já fez pre teste");
+  } else {
+    console.log("Não fez pre teste");
+  }
   return (
     <View  style={styles.container} >
-      {/*<View style={styles.getStartedContainer}>
-
-      <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')} >
+       <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress = {() => WebBrowser.openBrowserAsync('https://drive.google.com/drive/folders/1mMOhV7iG0x8gfH41c1L4K0u3C5ojunpE')} >
         <Image
-          source = {require("../images/Button_Materials2.png")}
+          source = {material}
           style={styles.ImageIconStyle}
 
-  /> 
-        
+        />
+        <View style={styles.SeparatorLine} />
+    </TouchableOpacity>
 
-    </TouchableOpacity> 
-    </View>*/}
+      
+      <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress = {() => WebBrowser.openBrowserAsync('https://www.youtube.com/channel/UCzLTuxjF2JjPjbDyJwHwMOQ')}>
+
+        <Image
+          source={youtube}
+          style={styles.ImageIconStyle}
+           />
+      </TouchableOpacity>
+
+        <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress = {() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')}>
+
+        <Image
+          source={postTest}
+          style={styles.ImageIconStyle}
+           />
+      </TouchableOpacity>
 
     
       
-      <button style={{ backgroundColor: '#EFF8F8', border: 0 }}  onClick={() => WebBrowser.openBrowserAsync('http://www.saude.gov.br/images/pdf/2016/outubro/26/livro-basico-2016.pdf')}><img src={material} /></button>
-      <button style={{ backgroundColor: '#EFF8F8', border: 0 }} onClick={() => WebBrowser.openBrowserAsync('https://www.youtube.com/watch?v=ER7YrPJp9Dc')}><img src={youtube} /></button>
-      <button style={{ backgroundColor: '#EFF8F8', border: 0 }}  onClick={() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')}><img src={postTest} /></button>
-      
-      
     </View>
   );
-}
-
-
-
-function myfunction() {
-  console.log("CLICKED");
 }
 
 const styles = StyleSheet.create({
@@ -51,7 +58,35 @@ const styles = StyleSheet.create({
    optionIconContainer: {
     marginRight: 12,
   },
-  
+  view: {
+    position: 'absolute',
+    backgroundColor: 'transparent'
+  },
+  ImageIconStyle: {
+    height: 73,
+    width: 200,
+    resizeMode: 'stretch',
+  },
+  FacebookStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#def3f3',
+    borderWidth: 0.5,
+    borderColor: '#def3f3',
+    height: 73,
+    width: 200,
+    borderRadius: 5,
+    margin: 5,
+  },
+  touchable: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    fontSize: 18,
+    textAlign: 'center'
+  }
   
   
 

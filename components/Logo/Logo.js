@@ -14,7 +14,6 @@ const Logo = () => (
         >
             { /* <ImageesizeMode="contain" style={styles.logo} source={require('./images/logo2.png')} /> */}
         </ImageBackground>
-        <Text style={styles.text}>SBVida</Text>
     </View >
 );
 

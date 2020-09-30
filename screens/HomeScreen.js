@@ -2,11 +2,10 @@ import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import { Image, Platform, Button, StyleSheet, Text, TouchableOpacity, Linking, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
-import { MonoText } from '../components/StyledText';
 import {Logo} from '../components/Logo';
 import {UFJFLogo} from '../components/UFJFLogo';
 import AsyncStorage from '@react-native-community/async-storage';
+
 
 const STORAGE_KEY = '@abriu_pre_teste';
 
@@ -15,13 +14,18 @@ export default function HomeScreen({navigation}) {
   //Verifica se já abriu pre teste
   if(global.state){
     console.log("redirecionando");
-    //navigation.navigate('Root'); 
+    navigation.navigate('Links'); 
   }
-  
+
+  //var text = global.state ? "Essa pagina nao devia ser mostrada" : "Suporte Básico de Vida";
+  var text = "Suporte Básico de Vida";
+  var title =  global.state ?  "Clique para continuar" : "Clique para abrir o Pré-Teste";
   return (
     
+
     
     <View style={styles.container}>
+
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
           <Logo></Logo>
@@ -34,18 +38,20 @@ export default function HomeScreen({navigation}) {
                         Seja bem vindo(a) ao:
                   </Text>
         </View>
-        <View style={styles.getStartedContainer}>
-          <Text style={styles.sbvidatext}>
-            Suporte Básico de Vida
-          </Text>   
-        </View>
+
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.sbvidatext}>
+              {text}
+            </Text>   
+          </View> 
+        
 
         <View style={styles.welcomeContainer}>
           <UFJFLogo></UFJFLogo>
         </View>
 
         <View style={{ flexDirection: 'row' }}>
-                    <Button color="#6dc9ca" fontFamily="Gotham" fontSize="10px" title="Clique para abrir o Pré-Teste" onPress={() =>  handlePreTestPress(navigation)} > </Button>
+                    <Button color="#6dc9ca" fontFamily="Gotham" fontSize="10px" title={title} onPress={() =>  handlePreTestPress(navigation)} > </Button>
          </View>
 
         
@@ -63,37 +69,37 @@ HomeScreen.navigationOptions = {
 
 
 function handlePreTestPress(navigation) {
-  navigation.navigate('Root');
+  navigation.navigate('Links');
+  var aux = global.state ? false : true;
   try{
     const t = salvarAberturaPreTeste();
   }catch(erro){
     console.error(erro.message)
   }
 
-  WebBrowser.openBrowserAsync(
-    'https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform'
-  );
+  if(aux) {
+    WebBrowser.openBrowserAsync(
+      'https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform'
+    ); 
+  }
 
 }
 
 const salvarAberturaPreTeste = async ()=> {
   try{
     AsyncStorage.setItem(STORAGE_KEY, "Sim");
+    global.state = true; 
     console.log("Salvou");
   }catch(erro){
     console.error(erro.message)
   }
 }
 
-function handleUnavailableItem () {
-  alert("Função Indisponível no momento!");
-};
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#def3f3',
   },
   welcometext: {
     color: 'rgba(20,20,20,1.0)',
@@ -105,7 +111,7 @@ const styles = StyleSheet.create({
   },
   sbvidatext: {
     color: 'rgba(20,20,20,1.0)',
-    fontSize: 25,
+    fontSize: 22,
     lineHeight: 19,
     fontFamily: 'Gotham',
     fontWeight: 'Bold',
