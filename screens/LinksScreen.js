@@ -1,6 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import { StyleSheet, View,Image,TouchableOpacity  } from 'react-native';
+import preTest from "../images/Button_PreTest.png";
 import material from "../images/Button_Materials2_3.png";
 import youtube from "../images/Button_MaterialsVideo_3.png";
 import postTest from "../images/Button_PosTest_3.png";
@@ -15,6 +16,14 @@ export default function LinksScreen() {
   }
   return (
     <View  style={styles.container} >
+      <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress = {() => WebBrowser.openBrowserAsync('https://docs.google.com/forms/d/e/1FAIpQLSf6TKsJoIvsPqDyscJ4zCoyEkvWb92Iu5mDw5MyAEQ1jcNjPQ/viewform')} >
+        <Image
+          source = {preTest}
+          style={styles.ImageIconStyle}
+
+        />
+    </TouchableOpacity>
+
        <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5} onPress = {() => WebBrowser.openBrowserAsync('https://drive.google.com/drive/folders/1mMOhV7iG0x8gfH41c1L4K0u3C5ojunpE')} >
         <Image
           source = {material}
