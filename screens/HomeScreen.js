@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     lineHeight: 19,
     fontFamily: 'Gotham',
-    fontWeight: 'Bold',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
   contentContainer: {
@@ -187,8 +187,7 @@ const styles = StyleSheet.create({
   },
   helpLink: {
     paddingVertical: 15,
-    backgroundColor: '#EFF8F8', 
-    border: 0, 
+    backgroundColor: '#EFF8F8'
   },
   helpLinkText: {
     fontSize: 14,
